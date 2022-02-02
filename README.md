@@ -41,7 +41,6 @@ We provide the delivery dates to plan accordingly; please take this project seri
 - Share the links of both your PR and your application to your mentor
 - Fill [the form](https://forms.gle/7Jz2uXMFYXfcU2428) to submit your project
 
-
 ## Deliverable 1
 
 **Related topics**: React Fundamentals & CSS Styles in React
@@ -97,7 +96,6 @@ In this assignment, you will create the initial version of your Ecommerce Store.
 ### Bonus
 
 - Unit Test to validate that the Ecommerce Store logo/name appears correctly in the Header. (10 points)
-
 
 ## Deliverable 2
 
@@ -162,7 +160,6 @@ In this assignment, you will continue working on your Ecommerce Store. It should
 ### Bonus
 
 - Emulate loading state for the Products Grid. You should show a loader component immediately after you navigate to the Product List Page and 2 seconds after that, you should remove that loader and show all the products from the mock file (20 points)
-
 
 ## Deliverable 3
 
@@ -289,7 +286,6 @@ In this assignment you will continue working on your Ecommerce Store. It should 
 - Abort Controller is implemented correctly for all your fetch requests (15 points)
 - Loading indicator appears on all the components that consume an API (10 points)
 - PropTypes are implemented correctly for all your components (10 points)
-
 
 ## Deliverable 4
 
