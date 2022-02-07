@@ -14,7 +14,8 @@ import {
   FooterCredits,
   FooterLabel,
 } from './Footer.styles';
-function Footer() {
+
+const Footer = () => {
   return (
     <div>
       <FooterSection>
@@ -61,7 +62,7 @@ function Footer() {
               </FooterLinks>
             </FooterLinksWrapper>
           </FooterLinkContainer>
-          <FooterCredits to="https://github.com/edithmg">
+          <FooterCredits>
             {' '}
             &copy; Copyright 2022, made with 💛 by Edith
           </FooterCredits>
@@ -69,6 +70,6 @@ function Footer() {
       </FooterSection>
     </div>
   );
-}
+};
 
 export default Footer;
