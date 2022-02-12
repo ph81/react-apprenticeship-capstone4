@@ -17,7 +17,7 @@ const Categories = () => {
       <CategoriesContainer>
         {categories.map((category) => (
           <Category key={category.id}>
-            <Link to={`/category/${category.data.name}`}>
+            <Link to={`/products?category=${category.data.name}`}>
               <CategoryImg
                 src={category.data.main_image.url}
                 alt={category.data.name}

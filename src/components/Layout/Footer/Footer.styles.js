@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { Container } from '../../../GlobalStyles';
 
 export const FooterSection = styled.section`
@@ -131,22 +130,24 @@ export const FooterLinkTitle = styled.h3`
   font-size: 20px;
 `;
 
-export const FooterLink = styled(Link)`
+export const FooterLink = styled.span`
   text-decoration: none;
   color: #fff;
   margin-bottom: 1rem;
   transition: all 0.4s ease;
   &:hover {
     color: var(--clr-primary-5);
+    cursor: pointer;
   }
 `;
 
-export const FooterCredits = styled(Link)`
+export const FooterCredits = styled.span`
   text-decoration: none;
   outline: none;
   color: #fff;
   margin-top: 3rem;
   &:hover {
     color: var(--clr-primary-5);
+    cursor: pointer;
   }
 `;

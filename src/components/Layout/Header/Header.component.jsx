@@ -17,54 +17,46 @@ const Header = () => {
   const closeMenu = () => setClick(false);
 
   return (
-    <div>
-      <header>
-        <Nav>
-          <NavbarContainer>
-            <NavLogo to="/">
-              <NavIcon />
-              NAKAMA
-            </NavLogo>
-            <MenuIcon onClick={handleClick}>
-              {click ? <FiX /> : <FiMenu />}
-            </MenuIcon>
-
-            <Menu onClick={handleClick} click={click}>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/">
-                  Home
-                </MenuLink>
-              </MenuItem>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/">
-                  New collection
-                </MenuLink>
-              </MenuItem>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/">
-                  Products
-                </MenuLink>
-              </MenuItem>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/">
-                  <FiSearch />
-                </MenuLink>
-              </MenuItem>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/">
-                  <FiUser />
-                </MenuLink>
-              </MenuItem>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/">
-                  <FiShoppingCart />
-                </MenuLink>
-              </MenuItem>
-            </Menu>
-          </NavbarContainer>
-        </Nav>
-      </header>
-    </div>
+    <header>
+      <Nav>
+        <NavbarContainer>
+          <NavLogo to="/">
+            <NavIcon />
+            NAKAMA
+          </NavLogo>
+          <MenuIcon onClick={handleClick}>
+            {click ? <FiX /> : <FiMenu />}
+          </MenuIcon>
+          <Menu onClick={handleClick} click={click}>
+            <MenuItem>
+              <MenuLink onClick={closeMenu} to="/">
+                Home
+              </MenuLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuLink onClick={closeMenu} to="/products">
+                Products
+              </MenuLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuLink onClick={closeMenu} to="/">
+                <FiSearch />
+              </MenuLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuLink onClick={closeMenu} to="/">
+                <FiUser />
+              </MenuLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuLink onClick={closeMenu} to="/">
+                <FiShoppingCart />
+              </MenuLink>
+            </MenuItem>
+          </Menu>
+        </NavbarContainer>
+      </Nav>
+    </header>
   );
 };
 
