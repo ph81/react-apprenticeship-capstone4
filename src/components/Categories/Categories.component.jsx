@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import mockCategories from '../../mocks/en-us/product-categories.json';
+import { useCategories } from '../../utils/hooks/useCategories';
+import Loading from '../Loading';
 import { Section } from '../../GlobalStyles';
 import {
   CategoriesContainer,
@@ -9,7 +10,12 @@ import {
 } from './Categories.styles';
 
 const Categories = () => {
-  const categories = mockCategories.results;
+  const { data: categoriesData, isCategoriesLoading } = useCategories();
+  const { results: categories } = categoriesData;
+
+  if (isCategoriesLoading) {
+    return <Loading />;
+  }
 
   return (
     <Section>

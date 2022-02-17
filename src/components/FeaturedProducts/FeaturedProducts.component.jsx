@@ -1,12 +1,23 @@
 import React from 'react';
 import ProductCard from '../Products/ProductCard';
-import mockFtProducts from '../../mocks/en-us/featured-products.json';
+import { useFeaturedProducts } from '../../utils/hooks/useFeaturedProducts';
 import { Link } from 'react-router-dom';
+import Loading from '../Loading';
+import Error from '../Error';
 import { Section, ProductContainer } from '../../GlobalStyles';
 import { ViewProductsBtn } from './FeaturedProducts.styles';
 
 const FeaturedProducts = () => {
-  const ftProducts = mockFtProducts.results;
+  const { data: ftProductsData, isLoading } = useFeaturedProducts();
+  const { results: ftProducts } = ftProductsData;
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (!ftProducts && !isLoading) {
+    return <Error />;
+  }
 
   return (
     <Section id="newcollection">

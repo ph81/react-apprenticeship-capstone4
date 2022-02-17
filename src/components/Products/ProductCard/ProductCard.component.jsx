@@ -5,7 +5,7 @@ import { Item, Name, Photo, Price, Slug } from './ProductCard.styles';
 const ProductCard = (item) => {
   const product = {
     id: item.id,
-    image_url: item.data.main_image.url,
+    image_url: item.data.mainimage.url,
     name: item.data.name,
     price: item.data.price,
     slug: item.data.category.slug,

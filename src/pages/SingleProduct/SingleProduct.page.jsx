@@ -1,18 +1,18 @@
 import React from 'react';
 import Header from '../../components/Layout/Header';
 import Footer from '../../components/Layout/Footer';
-import ProductList from '../../components/Products/ProductList';
+import ProductDetail from '../../components/Products/ProductDetail';
 
-const AllProducts = () => {
+const SingleProduct = () => {
   return (
     <>
       <Header />
       <main>
-        <ProductList />
+        <ProductDetail />
       </main>
       <Footer />
     </>
   );
 };
 
-export default AllProducts;
+export default SingleProduct;

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ProductCard from '../ProductCard';
-import mockProducts from '../../../mocks/en-us/products.json';
-import mockCategories from '../../../mocks/en-us/product-categories.json';
+import { useProductsContext } from '../../../context/ProductContext';
+import Loading from '../../Loading';
+import Error from '../../Error';
+import { useCategories } from '../../../utils/hooks/useCategories';
 import { usePagination } from '../../../utils/hooks/usePagination';
 import {
   Section,
@@ -15,8 +17,10 @@ import {
   FilterItem,
 } from './ProductList.styles';
 const ProductList = () => {
-  const products = mockProducts.results;
-  const categories = mockCategories.results;
+  const { products, isLoading } = useProductsContext();
+  const { data: categoriesData, isCategoriesLoading } = useCategories();
+  const { results: categories } = categoriesData;
+
   //pagination
   const {
     firstContentIndex,
@@ -39,6 +43,22 @@ const ProductList = () => {
       ? setFilterArray(filterArray.filter((x) => x !== id))
       : setFilterArray([...filterArray, id]);
   };
+
+  if (isCategoriesLoading) {
+    return <Loading />;
+  }
+
+  if (!categories && !isCategoriesLoading) {
+    return <Error type="categories" />;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (!products && !isLoading) {
+    return <Error type="products" />;
+  }
 
   if (!products) {
     return null;
