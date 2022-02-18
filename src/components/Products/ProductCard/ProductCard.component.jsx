@@ -13,7 +13,7 @@ const ProductCard = (item) => {
   return (
     <Item key={product.id}>
       <Photo>
-        <Link to={`/products/${product.id}`}>
+        <Link to={`/product/${product.id}`}>
           <img src={product.image_url} alt={product.name} />
         </Link>
       </Photo>

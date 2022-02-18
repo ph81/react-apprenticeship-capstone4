@@ -7,7 +7,6 @@ export const Searchbar = styled.div`
   z-index: 999;
   height: 80px;
   background-color: var(--clr-white);
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +23,7 @@ export const SearchForm = styled.form`
 `;
 
 export const SearchInput = styled.input`
-  width: 100%;
+  width: 330px;
   height: 100%;
   padding: 0 10px;
   color: #fff;

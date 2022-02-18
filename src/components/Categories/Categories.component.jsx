@@ -16,14 +16,13 @@ const Categories = () => {
   if (isCategoriesLoading) {
     return <Loading />;
   }
-
   return (
     <Section>
       <h1>Departments</h1>
       <CategoriesContainer>
         {categories.map((category) => (
           <Category key={category.id}>
-            <Link to={`/products?category=${category.data.name}`}>
+            <Link to={`/products?category=${category.slugs[0]}`}>
               <CategoryImg
                 src={category.data.main_image.url}
                 alt={category.data.name}

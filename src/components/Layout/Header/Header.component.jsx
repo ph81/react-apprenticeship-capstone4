@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiMenu, FiX, FiSearch, FiUser, FiShoppingCart } from 'react-icons/fi';
+import { FiMenu, FiX, FiUser, FiShoppingCart } from 'react-icons/fi';
 import Searchbox from '.././../Searchbox';
 import {
   Nav,
@@ -16,8 +16,8 @@ const Header = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
-  const [showSearch, setShowSearch] = useState(false);
-  const handleSearch = () => setShowSearch(!showSearch);
+  //const [showSearch, setShowSearch] = useState(false);
+  //const handleSearch = () => setShowSearch(!showSearch);
 
   return (
     <header>
@@ -27,7 +27,7 @@ const Header = () => {
             <NavIcon />
             NAKAMA
           </NavLogo>
-          {showSearch && <Searchbox />}
+          <Searchbox />
           <MenuIcon onClick={handleClick}>
             {click ? <FiX /> : <FiMenu />}
           </MenuIcon>
@@ -35,16 +35,6 @@ const Header = () => {
             <MenuItem>
               <MenuLink onClick={closeMenu} to="/">
                 Home
-              </MenuLink>
-            </MenuItem>
-            <MenuItem>
-              <MenuLink onClick={closeMenu} to="/products">
-                Products
-              </MenuLink>
-            </MenuItem>
-            <MenuItem>
-              <MenuLink onClick={closeMenu} to="/">
-                <FiSearch onClick={handleSearch} />
               </MenuLink>
             </MenuItem>
             <MenuItem>
