@@ -17,4 +17,7 @@ export const ViewProductsBtn = styled.button`
   &:active {
     transform: translateY(0.5rem);
   }
+  a {
+    color: var(--clr-white);
+  }
 `;
