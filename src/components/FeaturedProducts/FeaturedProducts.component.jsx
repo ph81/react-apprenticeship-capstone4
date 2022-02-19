@@ -13,9 +13,7 @@ const FeaturedProducts = () => {
 
   if (isLoading) {
     return <Loading />;
-  }
-
-  if (!ftProducts && !isLoading) {
+  } else if (!ftProducts) {
     return <Error />;
   }
 

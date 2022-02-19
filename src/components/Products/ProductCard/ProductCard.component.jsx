@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Item, Name, Photo, Price, Slug } from './ProductCard.styles';
 

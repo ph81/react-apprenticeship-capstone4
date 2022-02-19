@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FiMenu, FiX, FiUser, FiShoppingCart } from 'react-icons/fi';
 import Searchbox from '.././../Searchbox';
 import {
@@ -16,8 +16,6 @@ const Header = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
-  //const [showSearch, setShowSearch] = useState(false);
-  //const handleSearch = () => setShowSearch(!showSearch);
 
   return (
     <header>

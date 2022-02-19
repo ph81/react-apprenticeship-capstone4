@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ProductCard from '../ProductCard';
 import { useProductsContext } from '../../../context/ProductContext';
-import Loading from '../../Loading';
-import Error from '../../Error';
 import { useCategories } from '../../../utils/hooks/useCategories';
 import { usePagination } from '../../../utils/hooks/usePagination';
+import ProductCard from '../ProductCard';
+import Loading from '../../Loading';
+import Error from '../../Error';
 import {
   Section,
   ProductContainer,
@@ -45,41 +45,31 @@ const ProductList = () => {
   useEffect(() => {
     if (slugCategory !== '') {
       setFilterArray([...filterArray, slugCategory]);
-      console.log(filterArray);
     }
   }, []);
 
   const categoryFilter = (id) => {
-    filterArray.includes(id)
+    console.log(slugCategory);
+    console.log(id);
+    const res2 = filterArray.some((item) => item === id);
+    console.log(res2);
+    res2
       ? setFilterArray(filterArray.filter((x) => x !== id))
-      : //setFilterArray(filterArray.push(id));
-        setFilterArray(...filterArray, id);
+      : setFilterArray((prevArray) => [...prevArray, id]);
     console.log(filterArray);
-    const filtered = products.filter((product) =>
-      product.data.category.slug.includes(filterArray)
-    );
-    console.log(filterArray, filtered);
   };
 
   if (isCategoriesLoading) {
     return <Loading />;
-  }
-
-  if (!categories && !isCategoriesLoading) {
+  } else if (!categories) {
     return <Error type="categories" />;
   }
 
   if (isLoading) {
     return <Loading />;
-  }
-
-  if (!products && !isLoading) {
+  } else if (!products) {
     return <Error type="products" />;
   }
-
-  if (!products) {
-    return null;
-  } // pull off the props from product
 
   return (
     <Section>
@@ -118,7 +108,7 @@ const ProductList = () => {
               .slice(firstContentIndex, lastContentIndex)
           : products
               .filter((product) =>
-                product.data.category.slug.includes(filterArray)
+                filterArray.includes(product.data.category.slug)
               )
               .map((product) => <ProductCard key={product.id} {...product} />)
               .slice(firstContentIndex, lastContentIndex)}

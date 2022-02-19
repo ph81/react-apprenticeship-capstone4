@@ -1,7 +1,6 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Fuse from 'fuse.js';
 import { useProductsContext } from '../../../context/ProductContext';
+import Fuse from 'fuse.js';
 import Error from '../../Error';
 import ProductCard from '../ProductCard';
 import { Section, ProductContainer } from '../../../GlobalStyles';

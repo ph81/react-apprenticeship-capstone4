@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GalleryWrapper, NextItems } from './ProductGallery.styles';
 
 const ProductGallery = ({ images, alt }) => {
