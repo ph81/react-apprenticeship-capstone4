@@ -98,9 +98,7 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  &:hover {
-    color: var(--clr-primary-5);
-  }
+  
   &:active {
     transform: traslateY(3rem);
   }

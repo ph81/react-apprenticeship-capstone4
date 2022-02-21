@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import { useCartContext } from '../../../context/CartContext';
-
+import { useHistory } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
 import { CartBtnWrapper, CartValue, LinkBtn, ShopCart } from './CartBtn.styles';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const CartBtn = () => {
   const { total_items } = useCartContext();
@@ -11,7 +10,7 @@ const CartBtn = () => {
 
   return (
     <CartBtnWrapper>
-      <LinkBtn role="link" onClick={() => history.push('/cart')}>
+      <LinkBtn role="link" onClick={() => history.push('/cart')} title="Cart">
         <ShopCart>
           <FiShoppingCart />
           <CartValue>{total_items}</CartValue>

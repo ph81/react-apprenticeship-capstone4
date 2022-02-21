@@ -37,7 +37,7 @@ const CartItem = ({ id, image, name, price, amount }) => {
         <QuantityBtn amount={amount} increase={increase} decrease={decrease} />
       </QuantityItem>
       <Subtotal>${price * amount}</Subtotal>
-      <RemoveBtn onClick={() => removeItem(id)}>
+      <RemoveBtn onClick={() => removeItem(id)} title="Remove from cart">
         <FiTrash />
       </RemoveBtn>
     </Item>

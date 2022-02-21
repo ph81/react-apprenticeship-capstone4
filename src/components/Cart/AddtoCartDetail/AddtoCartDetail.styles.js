@@ -5,13 +5,13 @@ export const AddCartDetail = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+  width: max-content;
 `;
 
 export const LinkCart = styled(Link)`
-  margin-top: 3rem;
-  margin-left: 1rem;
+  margin-left: 5rem;
   color: white;
-  height: 3rem;
+  height: 4rem;
   width: 100%;
   font-weight: bold;
   padding: 10px;
@@ -20,7 +20,6 @@ export const LinkCart = styled(Link)`
   border: 1px solid transparent;
   border-radius: 0.3rem;
   &:hover {
-    background-color: var(--clr-primary-1);
     cursor: pointer;
   }
   /*

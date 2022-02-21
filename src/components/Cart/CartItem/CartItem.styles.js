@@ -41,37 +41,33 @@ export const Subtotal = styled.h4`
   margin-bottom: 0;
   color: var(--clr-grey-5);
   font-weight: 500;
-  font-size: 1.5rem;
   text-align: center;
   margin-top: 5rem;
   margin-left: 6rem;
   @media all and (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;
 
 export const Price = styled.h4`
   display: block;
-  font-size: 1.5rem;
   color: var(--clr-primary-5);
-  font-size: 1.5rem;
   font-weight: 500;
   text-align: left;
   margin-top: 5rem;
-  margin-left: 6rem;
+  margin-left: 9rem;
   @media all and (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;
 
 export const QuantityItem = styled.h4`
-  margin-top: 5rem;
   width: 75px;
   align-items: center;
+  margin-top: 3rem;
   button {
     width: 1rem;
     height: 0.5rem;
-    font-size: 0.75rem;
   }
 `;
 

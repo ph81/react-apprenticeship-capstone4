@@ -11,7 +11,6 @@ export const LinkCart = styled(Link)`
   margin-top: 2rem;
   margin-left: 2rem;
   color: white;
-  height: 3rem;
   width: 70%;
   font-weight: bold;
   padding: 10px;
