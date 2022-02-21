@@ -1,14 +1,19 @@
-import React from 'react';
-import mockData from '../../mocks/en-us/featured-banners.json';
+import { useFeaturedBanners } from '../../utils/hooks/useFeaturedBanners';
 import { StyledBanners, SwiperImg } from './FeaturedContent.styles';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
+import Loading from '../Loading';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper';
 
 const FeaturedContent = () => {
-  const banners = mockData.results;
+  const { data: bannersData, isLoading } = useFeaturedBanners();
+  const { results: banners } = bannersData;
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <StyledBanners>

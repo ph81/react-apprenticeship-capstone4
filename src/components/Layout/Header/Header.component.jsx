@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { FiMenu, FiX, FiSearch, FiUser, FiShoppingCart } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiMenu, FiX, FiUser, FiShoppingCart } from 'react-icons/fi';
+import Searchbox from '.././../Searchbox';
 import {
   Nav,
   NavbarContainer,
@@ -24,6 +25,7 @@ const Header = () => {
             <NavIcon />
             NAKAMA
           </NavLogo>
+          <Searchbox />
           <MenuIcon onClick={handleClick}>
             {click ? <FiX /> : <FiMenu />}
           </MenuIcon>
@@ -31,16 +33,6 @@ const Header = () => {
             <MenuItem>
               <MenuLink onClick={closeMenu} to="/">
                 Home
-              </MenuLink>
-            </MenuItem>
-            <MenuItem>
-              <MenuLink onClick={closeMenu} to="/products">
-                Products
-              </MenuLink>
-            </MenuItem>
-            <MenuItem>
-              <MenuLink onClick={closeMenu} to="/">
-                <FiSearch />
               </MenuLink>
             </MenuItem>
             <MenuItem>

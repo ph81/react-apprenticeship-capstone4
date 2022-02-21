@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import ProductCard from '../ProductCard';
-import mockProducts from '../../../mocks/en-us/products.json';
-import mockCategories from '../../../mocks/en-us/product-categories.json';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useProductsContext } from '../../../context/ProductContext';
+import { useCategories } from '../../../utils/hooks/useCategories';
 import { usePagination } from '../../../utils/hooks/usePagination';
+import ProductCard from '../ProductCard';
+import Loading from '../../Loading';
+import Error from '../../Error';
 import {
   Section,
   ProductContainer,
@@ -15,8 +18,13 @@ import {
   FilterItem,
 } from './ProductList.styles';
 const ProductList = () => {
-  const products = mockProducts.results;
-  const categories = mockCategories.results;
+  const { products, isLoading } = useProductsContext();
+  const { data: categoriesData, isCategoriesLoading } = useCategories();
+  const { results: categories } = categoriesData;
+
+  const byCategory = useLocation().search;
+  const slugCategory = new URLSearchParams(byCategory).get('category');
+
   //pagination
   const {
     firstContentIndex,
@@ -27,22 +35,41 @@ const ProductList = () => {
     setPage,
     totalPages,
   } = usePagination({
-    contentPerPage: 16,
+    contentPerPage: 12,
     count: products.length,
   });
 
   // setting up filter logic
   const [filterArray, setFilterArray] = useState([]);
 
+  useEffect(() => {
+    if (slugCategory !== '') {
+      setFilterArray([...filterArray, slugCategory]);
+    }
+  }, []);
+
   const categoryFilter = (id) => {
-    filterArray.includes(id)
+    console.log(slugCategory);
+    console.log(id);
+    const res2 = filterArray.some((item) => item === id);
+    console.log(res2);
+    res2
       ? setFilterArray(filterArray.filter((x) => x !== id))
-      : setFilterArray([...filterArray, id]);
+      : setFilterArray((prevArray) => [...prevArray, id]);
+    console.log(filterArray);
   };
 
-  if (!products) {
-    return null;
-  } // pull off the props from product
+  if (isCategoriesLoading) {
+    return <Loading />;
+  } else if (!categories) {
+    return <Error type="categories" />;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  } else if (!products) {
+    return <Error type="products" />;
+  }
 
   return (
     <Section>
@@ -54,8 +81,8 @@ const ProductList = () => {
               <label>
                 <input
                   type="checkbox"
-                  value={category.data.name}
-                  onChange={() => categoryFilter(category.id)}
+                  value={category.slugs[0]}
+                  onChange={() => categoryFilter(category.slugs[0])}
                 />
                 {category.data.name}
               </label>
@@ -81,7 +108,7 @@ const ProductList = () => {
               .slice(firstContentIndex, lastContentIndex)
           : products
               .filter((product) =>
-                product.data.category.id.includes(filterArray)
+                filterArray.includes(product.data.category.slug)
               )
               .map((product) => <ProductCard key={product.id} {...product} />)
               .slice(firstContentIndex, lastContentIndex)}

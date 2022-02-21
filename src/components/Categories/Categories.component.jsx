@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import mockCategories from '../../mocks/en-us/product-categories.json';
+import { useCategories } from '../../utils/hooks/useCategories';
+import Loading from '../Loading';
 import { Section } from '../../GlobalStyles';
 import {
   CategoriesContainer,
@@ -9,15 +9,19 @@ import {
 } from './Categories.styles';
 
 const Categories = () => {
-  const categories = mockCategories.results;
+  const { data: categoriesData, isCategoriesLoading } = useCategories();
+  const { results: categories } = categoriesData;
 
+  if (isCategoriesLoading) {
+    return <Loading />;
+  }
   return (
     <Section>
       <h1>Departments</h1>
       <CategoriesContainer>
         {categories.map((category) => (
           <Category key={category.id}>
-            <Link to={`/products?category=${category.data.name}`}>
+            <Link to={`/products?category=${category.slugs[0]}`}>
               <CategoryImg
                 src={category.data.main_image.url}
                 alt={category.data.name}

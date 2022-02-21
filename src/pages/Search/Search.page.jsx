@@ -1,17 +1,17 @@
 import Header from '../../components/Layout/Header';
 import Footer from '../../components/Layout/Footer';
-import ProductList from '../../components/Products/ProductList';
+import SearchProducts from '../../components/Products/SearchProducts';
 
-const AllProducts = () => {
+const Search = () => {
   return (
     <>
       <Header />
       <main>
-        <ProductList />
+        <SearchProducts />
       </main>
       <Footer />
     </>
   );
 };
 
-export default AllProducts;
+export default Search;

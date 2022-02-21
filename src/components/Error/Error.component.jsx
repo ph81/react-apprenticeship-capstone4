@@ -1,37 +1,37 @@
-import React from 'react';
+import { Section } from '../../GlobalStyles';
 
 const Error = ({ type }) => {
   if (type === 'single-product') {
     return (
-      <section>
+      <Section>
         <h3>Error getting product</h3>
         <h4>Redirecting...</h4>
-      </section>
+      </Section>
     );
   }
 
   if (type === 'products') {
     return (
-      <section>
+      <Section>
         <h3>Error getting products</h3>
         <h4>Redirecting...</h4>
-      </section>
+      </Section>
     );
   }
 
   if (type === 'categories') {
     return (
-      <section>
+      <Section>
         <h3>Error getting product categories</h3>
         <h4>Redirecting...</h4>
-      </section>
+      </Section>
     );
   }
 
   return (
-    <section>
+    <Section>
       <h2>Error getting data</h2>
-    </section>
+    </Section>
   );
 };
 
