@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useSingleProduct } from '../../../utils/hooks/useSingleProduct';
+import AddtoCartDetail from '../../Cart/AddtoCartDetail';
 import Loading from '../../Loading';
 import Error from '../../Error';
 import ProductGallery from '../ProductGallery';
@@ -29,10 +30,6 @@ const ProductDetail = () => {
     return <Error />;
   }
 
-  if (!product) {
-    return null;
-  } // pull off the props from product
-
   return (
     <ProductWrapper>
       <Detail>
@@ -49,7 +46,9 @@ const ProductDetail = () => {
               Price: <span>${product[0].data.price}</span>
             </Price>
             <PurchaseInfo>
-              {product[0]?.data?.stock > 0 && <h3>add to cart</h3>}
+              {product[0]?.data?.stock > 0 && (
+                <AddtoCartDetail product={product} />
+              )}
             </PurchaseInfo>
             <ProductSpecs>
               <h3>About this item: </h3>

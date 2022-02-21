@@ -1,11 +1,11 @@
 import { useFeaturedBanners } from '../../utils/hooks/useFeaturedBanners';
-import { StyledBanners, SwiperImg } from './FeaturedContent.styles';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';
 import Loading from '../Loading';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { StyledBanners, SwiperImg } from './FeaturedContent.styles';
 
 const FeaturedContent = () => {
   const { data: bannersData, isLoading } = useFeaturedBanners();

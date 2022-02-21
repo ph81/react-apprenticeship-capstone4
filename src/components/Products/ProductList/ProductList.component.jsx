@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useProductsContext } from '../../../context/ProductContext';
 import { useCategories } from '../../../utils/hooks/useCategories';
 import { usePagination } from '../../../utils/hooks/usePagination';
+import { hasQueryParams } from '../../../utils/helpers';
 import ProductCard from '../ProductCard';
 import Loading from '../../Loading';
 import Error from '../../Error';
@@ -21,9 +22,27 @@ const ProductList = () => {
   const { products, isLoading } = useProductsContext();
   const { data: categoriesData, isCategoriesLoading } = useCategories();
   const { results: categories } = categoriesData;
-
   const byCategory = useLocation().search;
   const slugCategory = new URLSearchParams(byCategory).get('category');
+  let productListing = [];
+
+  // setting up filter logic
+  const [filterArray, setFilterArray] = useState([]);
+
+  useEffect(() => {
+    if (slugCategory !== '') {
+      setFilterArray([...filterArray, slugCategory]);
+      console.log(filterArray);
+    }
+  }, []);
+
+  if (hasQueryParams(window.location.href)) {
+    productListing = products.filter((product) =>
+      product.data.category.slug.includes(filterArray)
+    );
+  } else {
+    productListing = products;
+  }
 
   //pagination
   const {
@@ -36,17 +55,8 @@ const ProductList = () => {
     totalPages,
   } = usePagination({
     contentPerPage: 12,
-    count: products.length,
+    count: productListing.length,
   });
-
-  // setting up filter logic
-  const [filterArray, setFilterArray] = useState([]);
-
-  useEffect(() => {
-    if (slugCategory !== '') {
-      setFilterArray([...filterArray, slugCategory]);
-    }
-  }, []);
 
   const categoryFilter = (id) => {
     console.log(slugCategory);
@@ -102,16 +112,9 @@ const ProductList = () => {
       </FilterContainer>
 
       <ProductContainer>
-        {filterArray.length === 0
-          ? products
-              .map((product) => <ProductCard key={product.id} {...product} />)
-              .slice(firstContentIndex, lastContentIndex)
-          : products
-              .filter((product) =>
-                filterArray.includes(product.data.category.slug)
-              )
-              .map((product) => <ProductCard key={product.id} {...product} />)
-              .slice(firstContentIndex, lastContentIndex)}
+        {productListing
+          .map((product) => <ProductCard key={product.id} {...product} />)
+          .slice(firstContentIndex, lastContentIndex)}
 
         <Pagination>
           <Page onClick={prevPage}>&larr;</Page>

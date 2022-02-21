@@ -1,13 +1,19 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
+import { CartProvider } from '../../../context/CartContext';
+import { ProductsProvider } from '../../../context/ProductContext';
 import Header from './Header.component';
 
 const renderNavbar = () => {
   render(
-    <BrowserRouter>
-      <Header />
-    </BrowserRouter>
+    <ProductsProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      </CartProvider>
+    </ProductsProvider>
   );
 };
 
