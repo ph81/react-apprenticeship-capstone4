@@ -75,32 +75,30 @@ h1,h2,h3,h4,h5,h6 {
   margin-bottom: 0.75rem;
 }
 h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 h3 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.8rem;
 }
 h5 {
-  font-size: 0.875rem;
+  font-size: 1.2rem;
 }
 
 h2,
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  &:hover {
-    color: var(--clr-primary-5);
-  }
+  
   &:active {
     transform: traslateY(3rem);
   }
@@ -109,7 +107,7 @@ a {
 svg {
   font-size: 2rem;
   @media (max-width: 400px) {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 }
 `;
@@ -137,7 +135,7 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  margin: 1.5rem;
+  margin: 3rem;
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -51,13 +51,13 @@ export const Title = styled.h2`
 
 export const Price = styled.p`
   margin: 1rem 0;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: bold;
   span {
     font-weight: 400;
   }
   @media screen and (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -69,22 +69,12 @@ export const PurchaseInfo = styled.div`
   }
   button {
     cursor: pointer;
-    margin: 0 auto;
-    color: white;
     height: 3rem;
     width: 60%;
     font-weight: bold;
-    padding: 10px;
     text-align: center;
-    background-color: hsl(22, 28%, 37%);
     border: 1px solid transparent;
     border-radius: 0.3rem;
-    &:first-of-type {
-      background: #256eff;
-    }
-    &:last-of-type {
-      background: hsl(22, 28%, 37%);
-    }
     &:hover {
       opacity: 0.9;
     }
@@ -123,7 +113,9 @@ export const ProductSpecs = styled.div`
       font-weight: 600;
       opacity: 0.9;
       span {
-        font-weight: 400;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-left: 1rem;
       }
     }
   }

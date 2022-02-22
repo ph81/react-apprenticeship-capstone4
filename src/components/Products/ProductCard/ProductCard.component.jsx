@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import AddtoCart from '../../Cart/AddtoCart';
 import { Item, Name, Photo, Price, Slug } from './ProductCard.styles';
 
 const ProductCard = (item) => {
@@ -19,6 +20,7 @@ const ProductCard = (item) => {
       <Slug>{product.slug}</Slug>
       <Name>{product.name}</Name>
       <Price>${product.price}</Price>
+      <AddtoCart product={product} showQuantity={false} />
     </Item>
   );
 };

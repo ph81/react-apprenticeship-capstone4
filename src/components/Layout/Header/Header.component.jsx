@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { FiMenu, FiX, FiUser, FiShoppingCart } from 'react-icons/fi';
+import { FiMenu, FiX, FiUser } from 'react-icons/fi';
 import Searchbox from '.././../Searchbox';
+import CartBtn from '../../Cart/CartBtn';
 import {
   Nav,
   NavbarContainer,
@@ -41,8 +42,8 @@ const Header = () => {
               </MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink onClick={closeMenu} to="/">
-                <FiShoppingCart />
+              <MenuLink onClick={closeMenu} to="/cart">
+                <CartBtn />
               </MenuLink>
             </MenuItem>
           </Menu>
