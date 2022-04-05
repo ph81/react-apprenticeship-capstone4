@@ -3,7 +3,7 @@ import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from '../../context/CartContext';
-import FeaturedProducts from './FeaturedProducts.component';
+import FeaturedProducts from '../../components/FeaturedProducts';
 import * as ref from '../../mocks/ref.json';
 import * as ftproducts from '../../mocks/en-us/featured-products.json';
 import { API_BASE_URL } from '../../utils/constants';

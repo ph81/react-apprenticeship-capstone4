@@ -8,7 +8,7 @@ const QuantityBtn = ({ increase, decrease, amount }) => {
       <button type="button" onClick={decrease}>
         <FiMinus />
       </button>
-      <h2 className="amount">{amount}</h2>
+      <h2>{amount}</h2>
       <button type="button" onClick={increase}>
         <FiPlus />
       </button>

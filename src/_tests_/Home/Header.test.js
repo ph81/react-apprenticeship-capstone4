@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
-import { CartProvider } from '../../../context/CartContext';
-import { ProductsProvider } from '../../../context/ProductContext';
-import Header from './Header.component';
+import { CartProvider } from '../../context/CartContext';
+import { ProductsProvider } from '../../context/ProductContext';
+import Header from '../../components/Layout/Header';
 
 const renderNavbar = () => {
   render(

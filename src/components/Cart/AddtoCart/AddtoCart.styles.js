@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 export const AddCart = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
+  justify-content: center;
 `;
 
 export const LinkCart = styled(Link)`
   margin-top: 2rem;
-  margin-left: 2rem;
   color: white;
   width: 70%;
   font-weight: bold;

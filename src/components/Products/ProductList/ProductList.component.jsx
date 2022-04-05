@@ -31,7 +31,8 @@ const ProductList = () => {
 
   useEffect(() => {
     if (slugCategory !== '') {
-      setFilterArray([...filterArray, slugCategory]);
+      filterArray.push(slugCategory);
+      setFilterArray([...filterArray]);
       console.log(filterArray);
     }
   }, []);
@@ -59,13 +60,9 @@ const ProductList = () => {
   });
 
   const categoryFilter = (id) => {
-    console.log(slugCategory);
-    console.log(id);
-    const res2 = filterArray.some((item) => item === id);
-    console.log(res2);
-    res2
+    filterArray.includes(id)
       ? setFilterArray(filterArray.filter((x) => x !== id))
-      : setFilterArray((prevArray) => [...prevArray, id]);
+      : setFilterArray((prevState) => [...prevState, id]);
     console.log(filterArray);
   };
 
