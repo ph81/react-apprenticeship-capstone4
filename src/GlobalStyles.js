@@ -142,6 +142,14 @@ export const Section = styled.section`
   align-items: center;
 `;
 
+export const ListContainer = styled.section`
+  margin: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 export const ProductContainer = styled.div`
   display: flex;
   justify-content: space-between;
