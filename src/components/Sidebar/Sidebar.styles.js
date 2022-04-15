@@ -1,23 +1,26 @@
 import styled from 'styled-components';
 
 export const Filters = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: var(--clr-primary-9);
-  position: fixed;
+  background-color: var(--clr-primary-6);
+  position: absolute;
   height: 100%;
   overflow: auto;
   @media screen and (max-width: 700px) {
     width: 100%;
     height: auto;
-    position: relative;
+    position: absolute;
+    flex-direction: row;
   }
 `;
 
 export const FilterCategory = styled.div`
   display: block;
-  color: yellow;
+  color: white;
   padding: 16px;
   text-decoration: none;
   &:active {
@@ -44,6 +47,7 @@ export const FilterItem = styled.span`
   min-height: 60vh;
   @media screen and (max-width: 700px) {
     margin-left: 0;
+    min-height: 5vh;
   }
 `;
 

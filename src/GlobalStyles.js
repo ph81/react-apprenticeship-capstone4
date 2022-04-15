@@ -142,12 +142,21 @@ export const Section = styled.section`
   align-items: center;
 `;
 
-export const ListContainer = styled.section`
-  margin: 3rem;
+export const ProductSection = styled.section`
   text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  background-color: var(--clr-primary-6);
+`;
+
+export const ListContainer = styled.section`
+  display: grid;
+  gap: 3rem 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 200px 1fr;
+  }
 `;
 
 export const ProductContainer = styled.div`
@@ -156,9 +165,9 @@ export const ProductContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
-  max-width: 1200px;
   margin: 0 auto;
   background: #fff;
+  max-width: 1400px;
 `;
 
 export const Button = styled.button`

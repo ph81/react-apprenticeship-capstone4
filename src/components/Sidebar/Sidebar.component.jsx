@@ -8,11 +8,9 @@ import {
   Filters,
 } from './Sidebar.styles';
 
-const Sidebar = ({ children, selectedCategory, setSelectedCategory }) => {
+const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
   const { data: categoriesData, isCategoriesLoading } = useCategories();
   const { results: categories } = categoriesData;
-
-  console.log(selectedCategory);
 
   const isSelected = (slug) => selectedCategory.includes(slug);
 
@@ -45,7 +43,7 @@ const Sidebar = ({ children, selectedCategory, setSelectedCategory }) => {
           Clear all filters
         </ClearFilter>
       </Filters>
-      <FilterItem>{children}</FilterItem>
+      <FilterItem />
     </>
   );
 };

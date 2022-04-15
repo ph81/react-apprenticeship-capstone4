@@ -7,7 +7,7 @@ import ProductCard from '../ProductCard';
 import Loading from '../../Loading';
 import Error from '../../Error';
 import {
-  Section,
+  ProductSection,
   ListContainer,
   ProductContainer,
 } from '../../../GlobalStyles';
@@ -21,7 +21,6 @@ const ProductList = () => {
   let productListing = [];
 
   useEffect(() => {
-    console.log(slugCategory);
     if (slugCategory !== '') {
       setSelectedCategory([slugCategory]);
     }
@@ -42,27 +41,26 @@ const ProductList = () => {
   }
 
   return (
-    <Section>
-      <h1>Products</h1>
+    <ProductSection>
       <ListContainer>
         <Sidebar
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
+        <ProductContainer>
+          {selectedCategory.length > 0
+            ? productListing
+                .filter(
+                  (product) =>
+                    selectedCategory.indexOf(product.data.category.slug) !== -1
+                )
+                .map((product) => <ProductCard key={product.id} {...product} />)
+            : products.map((product) => (
+                <ProductCard key={product.id} {...product} />
+              ))}
+        </ProductContainer>
       </ListContainer>
-      <ProductContainer>
-        {selectedCategory.length > 0
-          ? productListing
-              .filter(
-                (product) =>
-                  selectedCategory.indexOf(product.data.category.slug) !== -1
-              )
-              .map((product) => <ProductCard key={product.id} {...product} />)
-          : products.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-      </ProductContainer>
-    </Section>
+    </ProductSection>
   );
 };
 

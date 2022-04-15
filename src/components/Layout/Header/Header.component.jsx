@@ -37,11 +37,6 @@ const Header = () => {
               </MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink onClick={closeMenu} to="/products">
-                Our products
-              </MenuLink>
-            </MenuItem>
-            <MenuItem>
               <MenuLink onClick={closeMenu} to="#newcollection">
                 New collection
               </MenuLink>
