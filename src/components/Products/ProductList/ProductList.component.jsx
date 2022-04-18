@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useProductsContext } from '../../../context/ProductContext';
+import { usePagination } from '../../../utils/hooks/usePagination';
 import { hasQueryParams } from '../../../utils/helpers';
 import Sidebar from '../../Sidebar';
 import ProductCard from '../ProductCard';
@@ -15,6 +16,12 @@ import {
 const ProductList = () => {
   const { products, isLoading } = useProductsContext();
   const [selectedCategory, setSelectedCategory] = useState([]);
+
+  const { firstContentIndex, lastContentIndex } = usePagination({
+    contentPerPage: 16,
+  });
+
+  console.log(firstContentIndex, lastContentIndex);
 
   const byCategory = useLocation().search;
   const slugCategory = new URLSearchParams(byCategory).get('category');
