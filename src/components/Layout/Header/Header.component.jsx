@@ -37,6 +37,11 @@ const Header = () => {
               </MenuLink>
             </MenuItem>
             <MenuItem>
+              <MenuLink onClick={closeMenu} to="#newcollection">
+                New collection
+              </MenuLink>
+            </MenuItem>
+            <MenuItem>
               <MenuLink onClick={closeMenu} to="/">
                 <FiUser />
               </MenuLink>
