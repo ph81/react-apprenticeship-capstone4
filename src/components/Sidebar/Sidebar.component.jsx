@@ -1,12 +1,7 @@
 import { useCategories } from '../../utils/hooks/useCategories';
 import Loading from '../Loading';
 import Error from '../Error';
-import {
-  ClearFilter,
-  FilterCategory,
-  FilterItem,
-  Filters,
-} from './Sidebar.styles';
+import { ClearFilter, FilterCategory, Filters } from './Sidebar.styles';
 
 const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
   const { data: categoriesData, isCategoriesLoading } = useCategories();
@@ -43,7 +38,6 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
           Clear all filters
         </ClearFilter>
       </Filters>
-      <FilterItem />
     </>
   );
 };

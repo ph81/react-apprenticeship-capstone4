@@ -1,36 +1,31 @@
 import styled from 'styled-components';
 
 export const Filters = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+  margin-left: -200px;
   padding: 0;
   width: 200px;
-  background-color: var(--clr-primary-6);
-  position: absolute;
-  height: 100%;
+  position: fixed;
+  height: 70%;
   overflow: auto;
   @media screen and (max-width: 700px) {
+    margin: 0;
     width: 100%;
     height: auto;
-    position: absolute;
-    flex-direction: row;
+    position: relative;
   }
 `;
 
-export const FilterCategory = styled.div`
+export const FilterCategory = styled.a`
   display: block;
   color: white;
   padding: 16px;
   text-decoration: none;
   &:active {
-    background-color: var(--clr-primary-4);
-    color: white;
+    color: var(--clr-primary-4);
   }
   &:hover:not(.active) {
     cursor: pointer;
-    background-color: var(--clr-primary-3);
-    color: white;
+    color: var(--clr-primary-3);
   }
   @media screen and (max-width: 700px) {
     float: left;
@@ -38,16 +33,6 @@ export const FilterCategory = styled.div`
   @media screen and (max-width: 400px) {
     text-align: center;
     float: none;
-  }
-`;
-
-export const FilterItem = styled.span`
-  margin-left: 200px;
-  padding: 1px 16px;
-  min-height: 60vh;
-  @media screen and (max-width: 700px) {
-    margin-left: 0;
-    min-height: 5vh;
   }
 `;
 

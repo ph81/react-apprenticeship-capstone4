@@ -151,11 +151,11 @@ export const ProductSection = styled.section`
 `;
 
 export const ListContainer = styled.section`
-  display: grid;
-  gap: 3rem 1.5rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 200px 1fr;
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 90%;
+  @media screen and (max-width: 700px) {
+    margin-left: 0;
   }
 `;
 
