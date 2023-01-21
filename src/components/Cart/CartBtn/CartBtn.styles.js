@@ -22,6 +22,7 @@ export const ShopCart = styled.span`
   svg {
     margin-left: 5px;
   }
+  letter-spacing: var(--spacing);
 `;
 
 export const CartValue = styled.span`
