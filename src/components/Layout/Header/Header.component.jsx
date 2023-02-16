@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FiMenu, FiX, FiUser } from 'react-icons/fi';
 import Searchbox from '.././../Searchbox';
 import CartBtn from '../../Cart/CartBtn';
+import { FiMenu, FiX, FiUser } from 'react-icons/fi';
 import {
   Nav,
   NavbarContainer,
@@ -11,6 +11,7 @@ import {
   Menu,
   MenuItem,
   MenuLink,
+  MenuHashLink,
 } from './Header.styles';
 
 const Header = () => {
@@ -37,9 +38,9 @@ const Header = () => {
               </MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink onClick={closeMenu} to="#newcollection">
+              <MenuHashLink onClick={closeMenu} to="#newcollection">
                 New collection
-              </MenuLink>
+              </MenuHashLink>
             </MenuItem>
             <MenuItem>
               <MenuLink onClick={closeMenu} to="/">
