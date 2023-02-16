@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { FiShoppingBag } from 'react-icons/fi';
 import { Container } from '../../../GlobalStyles';
 
@@ -88,6 +89,34 @@ export const MenuItem = styled.li`
 `;
 
 export const MenuLink = styled(Link)`
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--clr-grey-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  height: 100%;
+  transition: all 0.2s ease;
+  &:hover {
+    color: var(--clr-primary-5);
+    transform: traslateY(-3rem);
+  }
+  &:active {
+    transform: traslateY(3rem);
+    color: var(--clr-primary-5);
+  }
+  @media only screen and (max-width: 1000px) {
+    display: block;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    color: var(--clr-white);
+  }
+`;
+
+export const MenuHashLink = styled(HashLink)`
   text-decoration: none;
   font-weight: bold;
   font-size: 2rem;
